@@ -1,5 +1,7 @@
-import RPi.GPIO as GPIO  # Import the GPIO Library
-import time  # Import the Time library
+#import RPi.GPIO as GPIO  # Import the GPIO Library
+#import time  # Import the Time library
+
+from move import *
 
 #BACK
 pinTrigger_B = 27

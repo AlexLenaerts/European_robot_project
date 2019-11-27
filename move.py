@@ -1,6 +1,9 @@
 import RPi.GPIO as GPIO  # Import the GPIO Library
 import time  # Import the Time library
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
 # Set variables for the GPIO motor pins
 pinMotorAForwards = 10
 pinMotorABackwards = 9
