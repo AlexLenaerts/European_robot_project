@@ -1,3 +1,6 @@
+import RPi.GPIO as GPIO  # Import the GPIO Library
+import time  # Import the Time library
+
 #BACK
 pinTrigger_B = 27
 pinEcho_B = 4
@@ -75,7 +78,7 @@ def avoidobstacle():
     # Back off a little
     print("stop")
     stopmotors()
-    if (!isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
+    if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
     	print("Backwards")
     	backwards()
     	time.sleep(reversetime)
@@ -85,20 +88,20 @@ def avoidobstacle():
 
     #gauche ou droite ? 
 
-    if (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==True && (isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False):
+    if ((isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==True) and (isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False)):
     	print("Right")
     	right()
     	time.sleep(turntime)
     	stopmotors()
 
-    else if (isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==True && (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False):
+    elif ((isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==True) and (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False)):
     	print("Left")
     	left()
     	time.sleep(turntime)
     	stopmotors()
 
     else :
-    	if (!isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
+    	if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
     		print("Backwards")
     		backwards()
     		time.sleep(reversetime)
