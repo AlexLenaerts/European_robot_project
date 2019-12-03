@@ -68,47 +68,54 @@ def measure(pinTrigger,pinEcho):
 def isnearobstacle(localhownear,pinTrigger,pinEcho):
     distance = measure(pinTrigger,pinEcho)
 
-    print("IsNearObstacle: " + str(distance))
+    print(pinTrigger,"IsNearObstacle: " + str(distance))
     if distance < localhownear:
         return True
+#	print("IsNearObstacle: " + str(distance))
     else:
         return False
 
 
 # Move back a little, then turn right
 def avoidobstacle():
+    compteur = 0
     # Back off a little
     print("stop")
     stopmotors()
-    if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
-    	print("Backwards")
-    	backwards()
-    	time.sleep(reversetime)
-    	stopmotors()
-    else: 
-    	stopmotors()
+   # if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
+    print("Backwards")
+    backwards()
+    time.sleep(reversetime)
+    stopmotors()
+   # else:
+    #	stopmotors()
 
-    #gauche ou droite ? 
+    #gauche ou droite ?
 
     if ((isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==True) and (isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False)):
-    	print("Right")
-    	right()
-    	time.sleep(turntime)
-    	stopmotors()
+       print("Right")
+       right()
+       time.sleep(turntime)
+       stopmotors()
 
     elif ((isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==True) and (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False)):
-    	print("Left")
-    	left()
-    	time.sleep(turntime)
-    	stopmotors()
-
-    else :
-    	if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
-    		print("Backwards")
-    		backwards()
-    		time.sleep(reversetime)
-    		stopmotors()
-    	else: 
-    		stopmotors()
+       print("Left")
+       left()
+       time.sleep(turntime)
+       stopmotors()
+    elif ((isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False) and (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False)):
+         print("Right2")
+         right()
+         time.sleep(turntime)
+         stopmotors()
+	 compteur ==1
+#        else :
+   # if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
+    #		print("Back!")
+    #		backwards()
+    #		time.sleep(10)
+    #		stopmotors()
+#    	else: 
+ #   		stopmotors()
 
 

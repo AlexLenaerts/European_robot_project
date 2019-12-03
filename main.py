@@ -16,11 +16,13 @@ try:
     # repeat the next indented block forever
     while True:
        forwards()
+       print("forward")
        time.sleep(0.1)
        if isnearobstacle(hownear,pinTrigger_F,pinEcho_F):
             stopmotors()
             avoidobstacle()
-
+       
 # If you press CTRL+C, cleanup and stop
 except KeyboardInterrupt:
     GPIO.cleanup()
+ #   camera.stop_preview()
