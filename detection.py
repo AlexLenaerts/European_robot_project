@@ -31,7 +31,7 @@ GPIO.setup(pinEcho_F, GPIO.IN)  # Echo
 
 
 # Distance Variables
-hownear = 15.0
+hownear = 20.0
 reversetime = 0.5
 turntime = 0.75
 
@@ -82,13 +82,13 @@ def avoidobstacle():
     # Back off a little
     print("stop")
     stopmotors()
-   # if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
-    print("Backwards")
-    backwards()
-    time.sleep(reversetime)
-    stopmotors()
-   # else:
-    #	stopmotors()
+    if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
+       print("Backwards")
+       backwards()
+       time.sleep(reversetime)
+       stopmotors()
+    else:
+       stopmotors()
 
     #gauche ou droite ?
 
