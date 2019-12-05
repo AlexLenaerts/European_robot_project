@@ -1,8 +1,5 @@
-#import RPi.GPIO as GPIO  # Import the GPIO Library
-#import time  # Import the Time library
-
 from move import *
-
+from time import sleep 
 #BACK
 pinTrigger_B = 27
 pinEcho_B = 4
@@ -39,7 +36,7 @@ turntime = 0.75
 # Take a distance measurement
 def measure(pinTrigger,pinEcho):
     GPIO.output(pinTrigger, True)
-    time.sleep(0.00001)
+    sleep(0.00001)
     GPIO.output(pinTrigger, False)
     starttime = time.time()
     stoptime = starttime
@@ -71,7 +68,6 @@ def isnearobstacle(localhownear,pinTrigger,pinEcho):
     print(pinTrigger,"IsNearObstacle: " + str(distance))
     if distance < localhownear:
         return True
-#	print("IsNearObstacle: " + str(distance))
     else:
         return False
 
@@ -85,7 +81,7 @@ def avoidobstacle():
     if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
        print("Backwards")
        backwards()
-       time.sleep(reversetime)
+       sleep(reversetime)
        stopmotors()
     else:
        stopmotors()
@@ -95,18 +91,18 @@ def avoidobstacle():
     if ((isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==True) and (isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False)):
        print("Right")
        right()
-       time.sleep(turntime)
+       sleep(turntime)
        stopmotors()
 
     elif ((isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==True) and (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False)):
        print("Left")
        left()
-       time.sleep(turntime)
+       sleep(turntime)
        stopmotors()
     elif ((isnearobstacle(hownear,pinTrigger_R,pinEcho_R)==False) and (isnearobstacle(hownear,pinTrigger_L,pinEcho_L)==False)):
          print("Right2")
          right()
-         time.sleep(turntime)
+         sleep(turntime)
          stopmotors()
 #        else :
    # if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
