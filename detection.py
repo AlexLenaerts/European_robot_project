@@ -108,7 +108,6 @@ def avoidobstacle():
          right()
          time.sleep(turntime)
          stopmotors()
-	 compteur ==1
 #        else :
    # if (isnearobstacle(hownear,pinTrigger_B,pinEcho_B)==False):
     #		print("Back!")
