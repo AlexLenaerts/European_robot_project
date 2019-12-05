@@ -2,5 +2,5 @@
 
 python3 main.py
 
-Inline-style: 
-![alt text](icon48.png)
+
+![alt text](icone48.png)
