@@ -1,3 +1,3 @@
 # European_robot_project
 
-python3 main.py
+Run : python3 main.py

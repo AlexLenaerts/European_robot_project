@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO 
+import RPi.GPIO as GPIO
 from detection import *
 from move import*
 import sys
@@ -29,7 +29,8 @@ class Robot(Thread):
                 print("stop123")
                # stopmotors()
                 avoidobstacle()
-
+        stopmotors()
+        print("stop robot")
         GPIO.cleanup()
 
     def stop(self):
@@ -47,18 +48,19 @@ class Camera(Thread):
       #     while not self.Terminated:
         main()
 
-    
+
 def maint():
-   t1 = Robot()
-   t2 = Camera()
-   try:
-     t1.start()
-     t2.start()
-     t1.join()
-     t2.join()
-   except KeyboardInterrupt:
-     t1.stop()
+    t1 = Robot()
+    t2 = Camera()
+    try:
+        t1.start()
+        t2.start()
+        t1.join()
+        t2.join()
+    except KeyboardInterrupt:
+        t1.stop()
 
-if __name__ == '__main__' :
 
-        maint()
+if __name__ == '__main__':
+
+    maint()
