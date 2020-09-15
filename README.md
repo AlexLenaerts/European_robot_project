@@ -16,4 +16,3 @@ python3 main.py
 Go to : http://pi_IP:8082/index.html
 
 ![alt text](icone48.png)
->>>>>>> 698117a0d22aced755dd2fc0156bf6cce2bda445
