@@ -1,6 +1,5 @@
 # European_robot_project
 
-<<<<<<< HEAD
 Run : python3 main.py
 =======
 #Installation 
